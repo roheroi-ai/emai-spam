@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Prediction Result - Sleep AI</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="../static/assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../static/assets/img/favicon.ico">
+    <!-- Load Require CSS -->
+    <link href="../static/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font CSS -->
+    <link href="../static/assets/css/boxicon.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Load Tempalte CSS -->
+    <link rel="stylesheet" href="../static/assets/css/templatemo.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/assets/css/custom.css">
+    <style>
+        body {
+            padding-top: 80px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top">
+        <div class="container d-flex justify-content-end align-items-center">
+            <a class="navbar-brand h1 me-auto" href="/home">
+                <i class='bx bx-envelope bx-sm text-dark'></i>
+                <span class="text-dark h4">Email</span> <span class="text-primary h4">Spam AI</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-toggler-success">
+                <ul class="navbar-nav d-flex align-items-center mb-2 mb-lg-0" style="gap: 0.5rem;">
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="/predict">Predict</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="/graphs">Graphs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="../static/Notebook.html">Notebook</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="/">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Main Content -->
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0 rounded-lg fade-in" style="border-left: 5px solid {{ border_color }};">
+                    <div class="card-header {{ header_bg_class }} text-white text-center py-3">
+                        <h1 class="h2 text-white mb-0"><i class='bx {{ icon_class }} bx-tada'></i> Prediction: {{ result_label }}</h1>
+                    </div>
+                    <div class="card-body p-5">
+                        <h3 class="h4 text-dark mb-3">{{ title_message }}</h3>
+                        <p class="text-muted">{{ result_info }}</p>
+
+                        <hr class="my-4">
+
+                        <h3 class="h4 text-dark mb-3">Recommendations</h3>
+                        <ul class="list-group list-group-flush">
+                            {% for recommendation in recommendations %}
+                            <li class="list-group-item d-flex align-items-start">
+                                <i class='bx bx-shield-x bx-sm text-primary me-3'></i>
+                                <span>{{ recommendation }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+
+                        <hr class="my-4">
+
+                        <p class="text-center text-muted fst-italic">
+                            Disclaimer: This is an AI-based prediction for email spam detection. Always use caution and independently verify suspicious emails.
+                        </p>
+
+                        <div class="text-center mt-4">
+                            <a href="/predict" class="btn btn-primary rounded-pill px-md-5 px-4 py-2">Check Again</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Main Content -->
+
+    <!-- Start Footer -->
+    <footer class="bg-secondary pt-4">
+        <div class="w-100 bg-primary py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-lg-6 col-sm-12">
+                        <p class="text-lg-start text-center text-light light-300">
+                            © Copyright 2025 Email Spam AI. All Rights Reserved.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <p class="text-lg-end text-center text-light light-300">
+                            Designed for Email Spam Detection with Machine Learning
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Bootstrap -->
+    <script src="../static/assets/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html> 

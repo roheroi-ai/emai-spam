@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Modal CSS for image zoom -->
+    <style>
+        .modal-img {
+            width: 100%;
+            height: auto;
+        }
+        .img-zoom {
+            cursor: zoom-in;
+            transition: box-shadow 0.3s;
+        }
+        .img-zoom:hover {
+            box-shadow: 0 0 0 4px #007bff44;
+        }
+    </style>
+    <title>Spam Detection Data Visualization</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="../static/assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../static/assets/img/favicon.ico">
+    <!-- Load Require CSS -->
+    <link href="../static/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font CSS -->
+    <link href="../static/assets/css/boxicon.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Load Tempalte CSS -->
+    <link rel="stylesheet" href="../static/assets/css/templatemo.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/assets/css/custom.css">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top">
+        <div class="container d-flex justify-content-end align-items-center">
+            <a class="navbar-brand h1 me-auto" href="/">
+                <i class='bx bx-envelope bx-sm text-dark'></i>
+                <span class="text-dark h4">Email</span> <span class="text-primary h4">Spam AI</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-toggler-success">
+                <ul class="navbar-nav d-flex align-items-center mb-2 mb-lg-0" style="gap: 0.5rem;">
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="/predict">Predict</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="graphs">Graphs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="../static/Notebook.html">Notebook</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="/">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+
+
+
+  
+    <section class="py-5 mb-5">
+        <div class="container">
+            <div class="recent-work-header row text-center pb-5">
+                <h2 class="col-md-6 m-auto h2 semi-bold-600 py-5">Spam Detection Data Visualization</h2>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <!-- Card 1 -->
+                <div class="col d-flex align-items-stretch">
+                    <div class="card border-0 shadow-lg mb-4 w-100">
+                        <img class="card-img-top img-zoom" src="../static/graphs/download.png" alt="Spam vs Ham Distribution" data-bs-toggle="modal" data-bs-target="#imgModal" onclick="showModal(this)">
+                        <div class="card-body">
+                            <h5 class="card-title">Spam vs Ham Distribution</h5>
+                            <p class="card-text">Visualize the proportion of spam and non-spam (ham) emails in the dataset.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col d-flex align-items-stretch">
+                    <div class="card border-0 shadow-lg mb-4 w-100">
+                        <img class="card-img-top img-zoom" src="../static/graphs/download (1).png" alt="Top Spam Words" data-bs-toggle="modal" data-bs-target="#imgModal" onclick="showModal(this)">
+                        <div class="card-body">
+                            <h5 class="card-title">Top Spam Words</h5>
+                            <p class="card-text">Explore the most frequent words and phrases found in spam emails.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col d-flex align-items-stretch">
+                    <div class="card border-0 shadow-lg mb-4 w-100">
+                        <img class="card-img-top img-zoom" src="../static/graphs/download (2).png" alt="Correlation Matrix - Best Model" data-bs-toggle="modal" data-bs-target="#imgModal" onclick="showModal(this)">
+                        <div class="card-body">
+                            <h5 class="card-title">Correlation Matrix (Best Model)</h5>
+                            <p class="card-text">Correlation matrix of the features for the highest accuracy spam detection model.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col d-flex align-items-stretch">
+                    <div class="card border-0 shadow-lg mb-4 w-100">
+                        <img class="card-img-top img-zoom" src="../static/graphs/download (3).png" alt="Model Accuracy Graph" data-bs-toggle="modal" data-bs-target="#imgModal" onclick="showModal(this)">
+                        <div class="card-body">
+                            <h5 class="card-title">Model Accuracy</h5>
+                            <p class="card-text">Graph showing the accuracy scores of different spam detection models.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="col d-flex align-items-stretch">
+                    <div class="card border-0 shadow-lg mb-4 w-100">
+                        <img class="card-img-top img-zoom" src="../static/graphs/download (4).png" alt="Model Precision Graph" data-bs-toggle="modal" data-bs-target="#imgModal" onclick="showModal(this)">
+                        <div class="card-body">
+                            <h5 class="card-title">Model Precision</h5>
+                            <p class="card-text">Graph showing the precision scores of different spam detection models.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="col d-flex align-items-stretch">
+                    <div class="card border-0 shadow-lg mb-4 w-100">
+                        <img class="card-img-top img-zoom" src="../static/graphs/download (5).png" alt="Model Recall Graph" data-bs-toggle="modal" data-bs-target="#imgModal" onclick="showModal(this)">
+                        <div class="card-body">
+                            <h5 class="card-title">Model Recall</h5>
+                            <p class="card-text">Graph showing the recall scores of different spam detection models.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 7 -->
+                <div class="col d-flex align-items-stretch">
+                    <div class="card border-0 shadow-lg mb-4 w-100">
+                        <img class="card-img-top img-zoom" src="../static/graphs/download (6).png" alt="Model F1 Score Graph" data-bs-toggle="modal" data-bs-target="#imgModal" onclick="showModal(this)">
+                        <div class="card-body">
+                            <h5 class="card-title">Model F1 Score</h5>
+                            <p class="card-text">Graph showing the F1 scores of different spam detection models.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Image Zoom Modal -->
+            <div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="imgModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header border-0">
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img id="modalImage" class="modal-img rounded shadow" src="" alt="Zoomed Graph">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function showModal(imgElem) {
+                    var modalImg = document.getElementById('modalImage');
+                    modalImg.src = imgElem.src;
+                    modalImg.alt = imgElem.alt;
+                }
+            </script>
+        </div>
+    </section>
+ 
+
+
+
+    <!-- Start Footer -->
+    <footer class="bg-secondary pt-4">
+
+        <div class="w-100 bg-primary py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-lg-6 col-sm-12">
+                        <p class="text-lg-start text-center text-light light-300">
+                            © Copyright 2025 Email Spam AI. All Rights Reserved.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <p class="text-lg-end text-center text-light light-300">
+                            Designed for Email Spam Detection with Machine Learning
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- Bootstrap -->
+    <script src="../static/assets/js/bootstrap.bundle.min.js"></script>
+    <!-- Load jQuery require for isotope -->
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <!-- Isotope -->
+    <script src="../static/assets/js/isotope.pkgd.js"></script>
+    <!-- Page Script -->
+    <script>
+        $(window).load(function() {
+            // init Isotope
+            var $projects = $('.projects').isotope({
+                itemSelector: '.project',
+                layoutMode: 'fitRows'
+            });
+            $(".filter-btn").click(function() {
+                var data_filter = $(this).attr("data-filter");
+                $projects.isotope({
+                    filter: data_filter
+                });
+                $(".filter-btn").removeClass("active");
+                $(".filter-btn").removeClass("shadow");
+                $(this).addClass("active");
+                $(this).addClass("shadow");
+                return false;
+            });
+        });
+    </script>
+    <!-- Templatemo -->
+    <script src="../static/assets/js/templatemo.js"></script>
+    <!-- Custom -->
+    <script src="../static/assets/js/custom.js"></script>
+
+</body>
+
+</html>

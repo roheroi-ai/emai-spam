@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Advanced Email Spam Detection Using Machine Learning</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="../static/assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../static/assets/img/favicon.ico">
+    <!-- Load Require CSS -->
+    <link href="../static/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font CSS -->
+    <link href="../static/assets/css/boxicon.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Load Tempalte CSS -->
+    <link rel="stylesheet" href="../static/assets/css/templatemo.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/assets/css/custom.css">
+    <style>
+        .feature-card {
+            /* ...existing styles... */
+            background: #fff;
+        }
+        .feature-card {
+            /* ...existing styles... */
+            background: #fff;
+        }
+        .feature-card:hover {
+            background: #f0f6ff;
+        }
+        .feature-card {
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            background: #fff;
+        }
+        .feature-card:hover {
+            transform: translateY(-12px) scale(1.04) rotate(-1deg);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 1.5px 6px rgba(0,0,0,0.08);
+            z-index: 2;
+        }
+        .feature-icon {
+            transition: color 0.3s, transform 0.3s;
+        }
+        .feature-card:hover .feature-icon {
+            color: #0d6efd !important;
+            transform: scale(1.18) rotate(8deg);
+            filter: drop-shadow(0 2px 8px #0d6efd33);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top">
+        <div class="container d-flex justify-content-end align-items-center">
+            <a class="navbar-brand h1 me-auto" href="/">
+                <i class='bx bx-envelope bx-sm text-dark'></i>
+                <span class="text-dark h4">Email</span> <span class="text-primary h4">Spam AI</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-toggler-success">
+                <ul class="navbar-nav d-flex align-items-center mb-2 mb-lg-0" style="gap: 0.5rem;">
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="/predict">Predict</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="/graphs">Graphs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="../static/Notebook.html">Notebook</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-outline-primary rounded-pill px-2" href="/">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+
+    <!-- Start Banner Hero -->
+    <div class="banner-wrapper bg-light">
+        <div id="index_banner" class="banner-vertical-center-index container-fluid pt-5">
+            <!-- Start slider -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="py-5 row d-flex align-items-center">
+                            <div class="banner-content col-lg-8 col-8 offset-2 m-lg-auto text-left py-5 pb-5">
+                                <h1 class="banner-heading h1 text-secondary display-3 mb-0 pb-5 mx-0 px-0 light-300 typo-space-line">
+                                    Advanced <strong>Email Spam Detection</strong>
+                                    <br>with Machine Learning
+                                </h1>
+                                <p class="banner-body text-muted py-3 mx-0 px-0">
+                                    Utilizing state-of-the-art machine learning models to accurately detect and filter spam emails. Protect your inbox and enhance your email security with intelligent, data-driven solutions.
+                                </p>
+                                <a class="banner-button btn rounded-pill btn-outline-primary btn-lg px-4" href="/predict" role="button">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="py-5 row d-flex align-items-center">
+                            <div class="banner-content col-lg-8 col-8 offset-2 m-lg-auto text-left py-5 pb-5">
+                                <h1 class="banner-heading h1 text-secondary display-3 mb-0 pb-3 mx-0 px-0 light-300">
+                                    AI-Powered Email Analysis
+                                </h1>
+                                <p class="banner-body text-muted py-3">
+                                    Discover how artificial intelligence can analyze email content, detect spam patterns, and provide real-time protection against phishing and unwanted messages.
+                                </p>
+                                <a class="banner-button btn rounded-pill btn-outline-primary btn-lg px-4" href="/graphs" role="button">Explore Features</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="py-5 row d-flex align-items-center">
+                            <div class="banner-content col-lg-8 col-8 offset-2 m-lg-auto text-left py-5 pb-5">
+                                <h1 class="banner-heading h1 text-secondary display-3 mb-0 pb-3 mx-0 px-0 light-300">
+                                    Personalized Spam Protection
+                                </h1>
+                                <p class="banner-body text-muted py-3">
+                                    Our platform delivers personalized spam filtering and continuous monitoring, helping users maintain a clean and secure inbox.
+                                </p>
+                                <a class="banner-button btn rounded-pill btn-outline-primary btn-lg px-4" href="../static/Notebook.html" role="button">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev text-decoration-none" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                    <i class='bx bx-chevron-left'></i>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next text-decoration-none" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                    <i class='bx bx-chevron-right'></i>
+                    <span class="visually-hidden">Next</span>
+                </a>
+            </div>
+            <!-- End slider -->
+        </div>
+    </div>
+    <!-- End Banner Hero -->
+
+    <section class="service-wrapper py-3">
+        <div class="container pb-5">
+            <h2 class="h2 text-center py-5 semi-bold-600">Why Choose Email Spam AI?</h2>
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <div class="p-4 border rounded-4 h-100 shadow-sm feature-card">
+                        <i class='bx bx-shield-x text-danger display-4 mb-3 feature-icon'></i>
+                        <h5 class="fw-bold">Real-Time Spam Detection</h5>
+                        <p>Instantly blocks spam, phishing, and scam emails before they reach your inbox using advanced AI models.</p>
+                        <a href="/predict" class="btn btn-outline-primary rounded-pill mt-3">Try Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="p-4 border rounded-4 h-100 shadow-sm feature-card">
+                        <i class='bx bx-brain text-primary display-4 mb-3 feature-icon'></i>
+                        <h5 class="fw-bold">Machine Learning Powered</h5>
+                        <p>Continuously learns from new threats and adapts to evolving spam tactics for maximum protection.</p>
+                        <a href="/predict" class="btn btn-outline-primary rounded-pill mt-3">Try Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="p-4 border rounded-4 h-100 shadow-sm feature-card">
+                        <i class='bx bx-bar-chart-alt-2 text-success display-4 mb-3 feature-icon'></i>
+                        <h5 class="fw-bold">Detailed Security Reports</h5>
+                        <p>Get actionable insights and comprehensive reports on your email security and spam trends.</p>
+                        <a href="/predict" class="btn btn-outline-primary rounded-pill mt-3">Try Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4 mt-2">
+                <div class="col-md-4 text-center">
+                    <div class="p-4 border rounded-4 h-100 shadow-sm feature-card">
+                        <i class='bx bx-cog text-warning display-4 mb-3 feature-icon'></i>
+                        <h5 class="fw-bold">Customizable Filters</h5>
+                        <p>Personalize your spam filters and controls to suit your needs and never miss important emails.</p>
+                        <a href="/predict" class="btn btn-outline-primary rounded-pill mt-3">Try Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="p-4 border rounded-4 h-100 shadow-sm feature-card">
+                        <i class='bx bx-user-check text-info display-4 mb-3 feature-icon'></i>
+                        <h5 class="fw-bold">User-Friendly Interface</h5>
+                        <p>Easy-to-use dashboard for managing spam settings and reviewing flagged emails.</p>
+                        <a href="/predict" class="btn btn-outline-primary rounded-pill mt-3">Try Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="p-4 border rounded-4 h-100 shadow-sm feature-card">
+                        <i class='bx bx-refresh text-secondary display-4 mb-3 feature-icon'></i>
+                        <h5 class="fw-bold">Continuous Updates</h5>
+                        <p>Our models are updated regularly to stay ahead of the latest spam and phishing techniques.</p>
+                        <a href="/predict" class="btn btn-outline-primary rounded-pill mt-3">Try Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Start Footer -->
+    <footer class="bg-secondary pt-4">
+
+        <div class="w-100 bg-primary py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-lg-6 col-sm-12">
+                        <p class="text-lg-start text-center text-light light-300">
+                            © Copyright 2025 Email Spam AI. All Rights Reserved.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <p class="text-lg-end text-center text-light light-300">
+                            Designed for Email Spam Detection with Machine Learning
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Footer -->
+
+
+    <!-- Bootstrap -->
+    <script src="../static/assets/js/bootstrap.bundle.min.js"></script>
+    <!-- Load jQuery require for isotope -->
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <!-- Isotope -->
+    <script src="../static/assets/js/isotope.pkgd.js"></script>
+    <!-- Page Script -->
+    <script>
+        $(window).load(function() {
+            // init Isotope
+            var $projects = $('.projects').isotope({
+                itemSelector: '.project',
+                layoutMode: 'fitRows'
+            });
+            $(".filter-btn").click(function() {
+                var data_filter = $(this).attr("data-filter");
+                $projects.isotope({
+                    filter: data_filter
+                });
+                $(".filter-btn").removeClass("active");
+                $(".filter-btn").removeClass("shadow");
+                $(this).addClass("active");
+                $(this).addClass("shadow");
+                return false;
+            });
+        });
+    </script>
+    <!-- Templatemo -->
+    <script src="../static/assets/js/templatemo.js"></script>
+    <!-- Custom -->
+    <script src="../static/assets/js/custom.js"></script>
+
+</body>
+
+</html>
